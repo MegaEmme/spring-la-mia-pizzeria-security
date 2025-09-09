@@ -19,7 +19,9 @@
                 <input type="text" id="search-term" name="searchTerm" class="me-3 rounded">
                 <button type="submit" class="btn btn-success rounded btn-sm me-2">Cerca</button>
             </form>
-            <a th:href="@{/pizzas/create}" class="btn btn-primary rounded btn-sm">Crea</a>
+            <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/pizzas/create}"
+                class="btn btn-primary rounded btn-sm">Crea</a>
+            <h3 th:text="'Ciao ' + ${username}" />
         </div>
         <section class="row">
             <div class="col-12">
@@ -32,8 +34,8 @@
                                 <th class="p-4 text-center">Prezzo</th>
                                 <th></th>
                                 <th></th>
-                                <th></th>
-                                <th></th>
+                                <th sec:authorize="hasAuthority('ADMIN')"></th>
+                                <th sec:authorize="hasAuthority('ADMIN')"></th>
                         </thead>
                         <tbody>
                             <tr th:each="pizza : ${pizzas}" th:object="${pizza}">
@@ -47,11 +49,11 @@
                                 <td class="p-4">
                                     <a th:href="@{/pizzas/{id}(id=*{id})}" class="btn btn-info btn-sm">Dettaglio</a>
                                 </td>
-                                <td class="p-4">
+                                <td sec:authorize="hasAuthority('ADMIN')" class="p-4">
                                     <a th:href="@{/pizzas/edit/{id}(id = ${pizza.id})}"
                                         class="btn btn-success btn-sm">Modifica</a>
                                 </td>
-                                <td class="p-4">
+                                <td sec:authorize="hasAuthority('ADMIN')" class="p-4">
                                     <!-- MODALE BOOTSTRAP PER BOTTONE DELETE  -->
                                     <!-- 1) bottone delete che fa partire la modale  -->
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
