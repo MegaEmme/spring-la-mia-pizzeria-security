@@ -25,7 +25,8 @@
                             Pizze
                         </a>
                     </li>
-                    <li class="nav-item" th:classappend="${current == 'ingredients'} ? 'active'">
+                    <li sec:authorize="hasAuthority('ADMIN')" class="nav-item"
+                        th:classappend="${current == 'ingredients'} ? 'active'">
                         <a class="nav-link" th:href="@{/ingredients}">
                             Ingredienti
                         </a>

@@ -11,6 +11,7 @@
 
     <main class="container p-4">
         <h1 class="text-center fw-bold mb-4">Le Pizze di Mike</h1>
+        <h3 th:text="'Ciao ' + ${username} + ', bentornata/o!'" class="text-center fw-bold" />
         <div class="d-flex justify-content-around mb-4 align-items-center">
             <form id="pizza-form" method="get" th:action="@{/pizzas}" th:object="${pizza}"
                 class="d-flex justify-content-center align-items-center">
@@ -21,7 +22,6 @@
             </form>
             <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/pizzas/create}"
                 class="btn btn-primary rounded btn-sm">Crea</a>
-            <h3 th:text="'Ciao ' + ${username}" />
         </div>
         <section class="row">
             <div class="col-12">
