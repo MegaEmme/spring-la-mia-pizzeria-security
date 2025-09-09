@@ -16,3 +16,11 @@ Sono previsti due ruoli : USER e ADMIN
 
 Chi avrà assegnato come ruolo USER potrà accedere solo alla pagina index e a quella di dettaglio.
 Chi invece avrà assegnato come ruolo ADMIN potrà fare tutto.
+
+ADMIN
+- username: mike
+- password: 123456
+
+USER
+- username: kitty
+- password: 123456
