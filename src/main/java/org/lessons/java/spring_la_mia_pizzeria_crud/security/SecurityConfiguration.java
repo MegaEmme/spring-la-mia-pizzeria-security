@@ -48,11 +48,16 @@ public class SecurityConfiguration {
         // QUESTO PROVIDER USERA X COME SERVIZIO DI RECUPERO DEGLI UTENTI VIA USERNAME
         // GLI PASSIAMO UserDetailService.java, CHE DOBBIAMO ANCORA CREARE --> CREAZIONE
         // DatatbaseUserDetailService.java
-
+        authProvider.setUserDetailsService(userDetailService());
         // QUESTO PROVIDER USERA Y COME PASSWORD ENCODER
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
+    }
+
+    @Bean
+    DatabaseUserDetailService userDetailService() {
+        return new DatabaseUserDetailService();
     }
 
     @Bean
