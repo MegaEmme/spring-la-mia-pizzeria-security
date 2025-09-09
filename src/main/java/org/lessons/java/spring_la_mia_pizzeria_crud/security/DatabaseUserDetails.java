@@ -16,13 +16,13 @@ public class DatabaseUserDetails implements UserDetails {
     private final String password;
     private final Set<GrantedAuthority> authorities;
 
-    // COSTRUTTORI
+    // COSTRUTTORE
     public DatabaseUserDetails(User user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.authorities = new HashSet<GrantedAuthority>();
-
+        // Per ogni ruolo presente nell'utente creo un relativo authority con quel nome
         for (Role userRole : user.getRoles()) {
             authorities.add(new SimpleGrantedAuthority(userRole.getName()));
         }

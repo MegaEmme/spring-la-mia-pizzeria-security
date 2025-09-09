@@ -12,11 +12,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DatabaseUserDetailService implements UserDetailsService {
-
-    // A SEGUITO DEL BLOCCO NEL CREARE SECURITY CONFIG, PER CUI HO DOVUTO CREARE
-    // USERDETAILSERVICE, MI TROVO UN ALTRO PROBLEMA, MI SERVE UN METODO CHE MI
+    // A SEGUITO DEL BLOCCO NEL CREARE SecurityConfiguration.java, PER CUI HO DOVUTO
+    // CREARE
+    // UserDetailsService.java, MI TROVO UN ALTRO PROBLEMA, MI SERVE UN METODO CHE
+    // MI
     // CONSENTA DI RECUPERARE LE INFO SULLA BASE DELLO USERNAME --> DEVO CREARE UNA
-    // REPOSITORY CHE IMPLEMENTI TALE METODO --> VAI A USERREPOSITORY
+    // REPOSITORY CHE IMPLEMENTI TALE METODO --> VAI A UserRepository.java
 
     @Autowired
     private UserRepository userRepository;
@@ -29,8 +30,10 @@ public class DatabaseUserDetailService implements UserDetailsService {
         if (userAttempt.isEmpty()) {
             throw new UsernameNotFoundException("There are no users available with username " + username);
         }
-        // ORA DEVO RITORNARE USERDETAILS, CHE NON HO ANCORA CREATO --> CREAZIONE
-        // DATABASEUSERDETAILS
+
+        // ORA DEVO RITORNARE UserDetails.java, CHE NON HO ANCORA CREATO --> CREAZIONE
+        // DatabaseUserDetails.java
+        return new DatabaseUserDetails(userAttempt.get());
 
     }
 }

@@ -46,8 +46,8 @@ public class SecurityConfiguration {
     DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         // QUESTO PROVIDER USERA X COME SERVIZIO DI RECUPERO DEGLI UTENTI VIA USERNAME
-        // GLI PASSIAMO USERDETAILSERVICE, CHE DOBBIAMO ANCORA CREARE --> CREAZIONE
-        // DATABASEUSERDETAILSERVICE
+        // GLI PASSIAMO UserDetailService.java, CHE DOBBIAMO ANCORA CREARE --> CREAZIONE
+        // DatatbaseUserDetailService.java
 
         // QUESTO PROVIDER USERA Y COME PASSWORD ENCODER
         authProvider.setPasswordEncoder(passwordEncoder());
